@@ -47,9 +47,9 @@ $ npm install intval
 
 ```js
 // commonjs
-const { intval } = require("intval");
+const intval = require("intval");
 // es module
-// import { intval } from "intval";
+// import intval from "intval";
 
 let myIntValue = intval(myVar);
 let myIntValueFromBin = intval(myVar, 2);
