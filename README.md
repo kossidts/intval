@@ -4,6 +4,8 @@ Get the integer value of a given variable. It will always return an integer valu
 
 It will return 0 in case the provided value is non numeric or in cases where parseInt would have return NaN.
 
+**So if it's supposed to be an integer, cast it with intval.**
+
 ```js
 intval() === 0; // parseInt would have return NaN
 intval(null) === 0; // parseInt would have return NaN

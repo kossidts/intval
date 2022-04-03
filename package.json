@@ -1,7 +1,7 @@
 {
     "name": "intval",
     "version": "1.0.0",
-    "description": "Get the integer value of a given variable. Will always return an integer value!",
+    "description": "Get the integer value of a given variable. Will always return an integer value! So if it's supposed to be an integer, cast it with intval.",
     "main": "index.js",
     "exports": {
         "import": "./wrapper.mjs",
