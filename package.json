@@ -1,6 +1,6 @@
 {
     "name": "intval",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Get the integer value of a given variable. Will always return an integer value! So if it's supposed to be an integer, cast it with intval.",
     "main": "index.js",
     "exports": {
