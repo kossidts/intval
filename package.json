@@ -7,6 +7,14 @@
         "import": "./wrapper.mjs",
         "require": "./index.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kossidts/intval.git"
+    },
+    "homepage": "https://github.com/kossidts/intval#readme",
+    "bugs": {
+        "url": "https://github.com/kossidts/intval/issues"
+    },
     "keywords": [
         "intval",
         "int value",
