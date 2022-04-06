@@ -3,6 +3,9 @@
     "version": "1.0.1",
     "description": "Get the integer value of a given variable. Will always return an integer value! So if it's supposed to be an integer, cast it with intval.",
     "main": "index.js",
+    "scripts": {
+        "test": "jest test.js"
+    },
     "exports": {
         "import": "./wrapper.mjs",
         "require": "./index.js"
@@ -23,5 +26,7 @@
     ],
     "type": "commonjs",
     "author": "Kossi D. T. Saka",
-    "license": "MIT"
+    "devDependencies": {
+        "jest": "^27.5.1"
+    }
 }
