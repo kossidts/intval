@@ -22,10 +22,19 @@
         "intval",
         "int value",
         "integer value",
-        "parseInt"
+        "int",
+        "integer",
+        "parseint",
+        "parse int",
+        "parse integer",
+        "number",
+        "numberic",
+        "type",
+        "typecast"
     ],
     "type": "commonjs",
     "author": "Kossi D. T. Saka",
+    "license": "MIT",
     "devDependencies": {
         "jest": "^27.5.1"
     }
