@@ -6,8 +6,9 @@ Get the correct integer value of a given variable. It will always return an inte
 
 Intval is better than parseInt as it returns the value any developer would have expected, for instance
 
-**`Intval("1e10") === 10_000_000_000`** but **`parseInt("1e10") === 1`**
-**`Intval("3.125e7") === 31_250_000`** but **`parseInt("3.125e7") === 3`**
+**`Intval("1e10") === 10_000_000_000`** and **`Intval("3.125e7") === 31_250_000`**
+but
+**`parseInt("1e10") === 1`** and **`parseInt("3.125e7") === 3`**
 
 It will return 0 in many cases where parseInt would have returned NaN. But not always:
 **`intval(true) === 1`** and **`intval(false) === 0`** whereas `parseInt` would have returned `NaN` in both cases but as you know `parseInt(true) !== parseInt(false) !== NaN` ;).
