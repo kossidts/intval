@@ -1,7 +1,7 @@
 {
     "name": "intval",
     "version": "1.0.2",
-    "description": "Get the integer value of a given variable. Will always return an integer value! So if it's supposed to be an integer, cast it with intval.",
+    "description": "Returns sensible integer value of a given variable. Unlike parseInt it will never return NaN and you can set a default value to be returned in case the variable is undefined! Hence you can write even cleaner code. So if it's supposed to be an integer, cast it with intval.",
     "main": "index.js",
     "scripts": {
         "test": "jest test.js"
@@ -20,6 +20,7 @@
     },
     "keywords": [
         "intval",
+        "int val",
         "int value",
         "integer value",
         "int",
@@ -28,9 +29,13 @@
         "parse int",
         "parse integer",
         "number",
-        "numberic",
+        "numeric",
         "type",
-        "typecast"
+        "typecast",
+        "isnan",
+        "is nan",
+        "nan",
+        "valueof"
     ],
     "type": "commonjs",
     "author": "Kossi D. T. Saka",

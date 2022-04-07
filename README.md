@@ -2,20 +2,89 @@
 
 [![License][license-image]][license-url] [![NPM Package Version][npm-image-version]][npm-url] ![GitHub top language][language-image] ![Size][size-image] ![Last Commit][commit-image]
 
-Get the correct integer value of a given variable. It will always return an integer value!
+Returns sensible integer value of a given variable. It will always return an integer value! _(Unless **you** provide a non integer default value)_.
 
-Intval is better than parseInt as it returns the value any developer would have expected, for instance
+> Unlike _parseInt_, `intval` will never return `NaN` and you can provide a default value right away to be returned in case the variable is undefined. Hence `intval` helps you write even cleaner code.
 
-**`Intval("1e10") === 10_000_000_000`** and **`Intval("3.125e7") === 31_250_000`**
-but
-**`parseInt("1e10") === 1`** and **`parseInt("3.125e7") === 3`**
+Syntax:
 
-It will return 0 in many cases where parseInt would have returned NaN. But not always:
-**`intval(true) === 1`** and **`intval(false) === 0`** whereas `parseInt` would have returned `NaN` in both cases but as you know `parseInt(true) !== parseInt(false) !== NaN` ;).
+`intval(someValue)`
+`intval(someValue, base)`
+`intval(someValue, base, defaultValue)`
+
+**Intval returns sensible values you would have expected**, for instance:
+
+`intval("1e10") === 10_000_000_000` vs `parseInt("1e10") === 1`
+
+`intval("3.125e7") === 31_250_000` vs `parseInt("3.125e7") === 3`
+
+**`intval(true) === 1`** and **`intval(false) === 0`**
+
+whereas `parseInt` would have returned `NaN` in both cases but as you know:
+
+`parseInt(true) !== parseInt(false) !== NaN` though it `isNaN()` ;).
+
+This package is inspired by the PHP function intval, but this package is consistent in a javaScript way: for example in PHP `<?php intval("42", 8) === 34; ?>` but `<?php intval(42, 8) === 42; ?>` whereas this package returns 34 in both cases.
 
 **So if it's supposed to be an integer, cast it with intval.**
 
-This package is inspired by the PHP function intval, but has some differences: for example in PHP `intval("42", 8) === 32` but `intval(42, 8) === 42` whereas this package 34 in both cases.
+## Installation
+
+```bash
+$ npm i intval
+```
+
+## Usage
+
+##### Require Commonjs
+
+```js
+const intval = require("intval");
+```
+
+##### Import ES-Module
+
+```js
+import intval from "intval";
+```
+
+#### Use in Code ([more examples below](#some-examples))
+
+```js
+let intValue = intval(someValue);
+```
+
+**With base/radix**
+`intval(someValue, base)`
+
+```js
+let intValue = intval(someValue, 2);
+```
+
+**With default value for undefined variables**
+
+`intval(someValue, base, defaulValue)`
+
+```js
+let intValue = intval(someValue, 10, 42);
+```
+
+is the same as
+
+```js
+let intValue = typeof someValue != "undefined" ? intval(someValue) : 42;
+```
+
+**Caution: The default value will not be type casted and the base/radix has no efflect on it. So, the following will return a string value "42" in case 'someValue' is undefined**
+
+```js
+let myValue = intval(someValue, 16, "42");
+
+// myValue === 42 --> false
+// myValue === "42" --> true
+```
+
+### Some examples
 
 ```js
 intval() === 0; // parseInt would have returned NaN
@@ -43,41 +112,30 @@ intval(123_456) === 123456;
 intval("123_456") === 123;
 ```
 
-Pass in a base/radix
+#### Pass in a base/radix as a second argument - just like with parseInt
 
 ```js
 intval(42, 8) === 34;
 intval("42", 8) === 34;
 
+intval(1011, 2) === 11;
+
 intval("1g51", 16) === 1;
 intval("1f51", 16) === 8017;
 ```
 
-## Installation
+#### Pass in a default value in case the variable is undefined
 
-```bash
-$ npm install intval
-```
-
-## Usage
-
-### Require Commonjs
+As described above the base has no effect on the default value.
 
 ```js
-const intval = require("intval");
-```
+let someValue; // undefined
+intval(someValue, 10, 42) === 42;
+intval(someValue, 8, 42) === 42;
+intval(someValue, 8, "42") === "42";
 
-### Import ES-Module
-
-```js
-import intval from "intval";
-```
-
-### Use in Code
-
-```js
-let intValue = intval(someValue);
-let intValueFromBin = intval(someValue, 2);
+intval("1g51", 16, 42) === 1;
+intval(someValue, 16, 42) === 42;
 ```
 
 ## Testing (jest)
