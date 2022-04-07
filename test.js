@@ -46,3 +46,28 @@ describe.each([
         expect(intval(val, radix)).toBe(expected);
     });
 });
+
+// Intval with defaultValue
+describe.each([
+    { val: undefined, radix: 8, defaultValue: 42, expected: 42 },
+    { val: 42, radix: 8, defaultValue: 42, expected: 34 },
+    { val: undefined, radix: 16, defaultValue: 42, expected: 42 },
+    { val: 42, radix: 16, defaultValue: 42, expected: 66 },
+    { val: "1g51", radix: 16, defaultValue: 42, expected: 1 },
+    { val: "1f51", radix: 16, defaultValue: 42, expected: 8017 },
+    { val: undefined, radix: 2, defaultValue: 42, expected: 42 },
+    { val: 42, radix: 2, defaultValue: 42, expected: 0 },
+    { val: 1011, radix: 2, defaultValue: 42, expected: 11 },
+    { val: 404, radix: 10, defaultValue: 42, expected: 404 },
+])("intval($val, $radix, $defaultValue)", ({ val, radix, defaultValue, expected }) => {
+    it(`returns ${expected}`, () => {
+        expect(intval(val, radix, defaultValue)).toBe(expected);
+    });
+});
+
+describe("intval(undefined, 10, '42')", () => {
+    it(`returns a string value 42`, () => {
+        let someValue;
+        expect(intval(someValue, 10, "42")).toStrictEqual("42");
+    });
+});
