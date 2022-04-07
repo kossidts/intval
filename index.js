@@ -1,4 +1,7 @@
-const intval = (value, base) => {
+const intval = (value, base, defaultValue) => {
+    if ("undefined" == typeof value && "undefined" != typeof defaultValue) {
+        return defaultValue;
+    }
     if (value == Number(value)) {
         value = Number(value);
     }
