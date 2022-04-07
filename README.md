@@ -1,15 +1,17 @@
 # Intval
 
-[![License][license-image]][license-url] [![NPM Package Version][npm-image-version]][npm-url] ![GitHub top language][language-image] ![Size][size-image] ![Last Commit][commit-image]
+[![License][license-image]][license-url] [![NPM Package Version][npm-image-version]][npm-url] ![GitHub top language][language-image] ![Size][size-image] ![Last Commit][commit-image] ![Workflow CI][workflow-image]
 
 Returns sensible integer value of a given variable. It will always return an integer value! _(Unless **you** provide a non integer default value)_.
 
-> Unlike _parseInt_, `intval` will never return `NaN` and you can provide a default value right away to be returned in case the variable is undefined. Hence `intval` helps you write even cleaner code.
+Unlike _parseInt_, `intval` will never return `NaN` and you can provide a default value right away to be returned in case the variable is undefined. Hence `intval` helps you write even cleaner code.
 
 Syntax:
 
 `intval(someValue)`
+
 `intval(someValue, base)`
+
 `intval(someValue, base, defaultValue)`
 
 **Intval returns sensible values you would have expected**, for instance:
@@ -55,6 +57,7 @@ let intValue = intval(someValue);
 ```
 
 **With base/radix**
+
 `intval(someValue, base)`
 
 ```js
@@ -160,3 +163,6 @@ Copyright &copy; 2022. Kossi D. T. Saka.
 [language-image]: https://img.shields.io/github/languages/top/kossidts/intval?color=yellow
 [size-image]: https://img.shields.io/github/repo-size/kossidts/intval?color=light
 [commit-image]: https://img.shields.io/github/last-commit/kossidts/intval
+[actions-url]: https://github.com/kossidts/intval/actions
+[workflow-image]: https://github.com/kossidts/intval/actions/workflows/node.js.yml/badge.svg
+[workflow-image-2]: https://github.com/kossidts/intval/workflows/Node.js%20CI/badge.svg
