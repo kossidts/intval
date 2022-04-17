@@ -2,19 +2,7 @@
 
 [![License][license-image]][license-url] [![NPM Package Version][npm-image-version]][npm-url] ![GitHub top language][language-image] ![Size][size-image] ![Last Commit][commit-image] ![Workflow CI][workflow-image]
 
-Returns sensible integer value of a given variable. It will always return an integer value! _(Unless **you** provide a non integer default value)_.
-
-Unlike _parseInt_, `intval` will never return `NaN` and you can provide a default value right away to be returned in case the variable is undefined. Hence `intval` helps you write even cleaner code.
-
-Syntax:
-
-`intval(someValue)`
-
-`intval(someValue, base)`
-
-`intval(someValue, base, defaultValue)`
-
-**Intval returns sensible values you would have expected**, for instance:
+**Intval will always return the sensible integer value of a given variable.** For instance:
 
 `intval("1e10") === 10_000_000_000` vs `parseInt("1e10") === 1`
 
@@ -24,9 +12,23 @@ Syntax:
 
 whereas `parseInt` would have returned `NaN` in both cases but as you know:
 
-`parseInt(true) !== parseInt(false) !== NaN` though it `isNaN()` ;).
+`parseInt(true) !== NaN !== parseInt(false) ` though it `isNaN()` ;).
 
-This package is inspired by the PHP function intval, but this package is consistent in a javaScript way: for example in PHP `<?php intval("42", 8) === 34; ?>` but `<?php intval(42, 8) === 42; ?>` whereas this package returns 34 in both cases.
+Unlike _parseInt_, `intval` will never return `NaN` and **you can provide a default value right away to be returned in case the variable is undefined**. Hence `intval` helps you write even cleaner code.
+
+Syntax:
+
+`intval(someValue)`
+
+`intval(someValue, base)`
+
+`intval(someValue, base, defaultValue)`
+
+This package is inspired by the PHP function intval, but this package is consistent in a javaScript way: for example in PHP
+
+`<?php intval("42", 8) === 34; ?>` but `<?php intval(42, 8) === 42; ?>`
+
+whereas this package returns 34 in both cases.
 
 **So if it's supposed to be an integer, cast it with intval.**
 
@@ -56,7 +58,7 @@ import intval from "intval";
 let intValue = intval(someValue);
 ```
 
-**With base/radix**
+##### With base/radix
 
 `intval(someValue, base)`
 
@@ -64,7 +66,7 @@ let intValue = intval(someValue);
 let intValue = intval(someValue, 2);
 ```
 
-**With default value for undefined variables**
+##### With default value for undefined variables
 
 `intval(someValue, base, defaulValue)`
 
@@ -166,3 +168,10 @@ Copyright &copy; 2022. Kossi D. T. Saka.
 [actions-url]: https://github.com/kossidts/intval/actions
 [workflow-image]: https://github.com/kossidts/intval/actions/workflows/node.js.yml/badge.svg
 [workflow-image-2]: https://github.com/kossidts/intval/workflows/Node.js%20CI/badge.svg
+
+<!--
+[paypal-img]: https://img.shields.io/badge/Donate-PayPal-ff4081.svg
+[paypal-link]: https://www.paypal.me/christopheKDTS
+
+[![PayPal Donate][paypal-img]][paypal-link]
+-->
