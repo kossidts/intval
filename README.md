@@ -40,16 +40,22 @@ $ npm i intval
 
 ## Usage
 
-##### Require Commonjs
+##### Require CommonJS (default)
 
 ```js
 const intval = require("intval");
 ```
 
-##### Import ES-Module
+##### Import ES-Module (default)
 
 ```js
 import intval from "intval";
+```
+
+##### Import ES-Module (named)
+
+```js
+import { intval } from "intval";
 ```
 
 #### Use in Code ([more examples below](#some-examples))
