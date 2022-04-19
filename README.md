@@ -80,7 +80,7 @@ is the same as
 let intValue = typeof someValue != "undefined" ? intval(someValue) : 42;
 ```
 
-**Caution: The default value will not be type casted and the base/radix has no efflect on it. So, the following will return a string value "42" in case 'someValue' is undefined**
+**Caution: The default value will not be type casted and the base/radix has no effect on it. So, the following will return a string value "42" in case 'someValue' is undefined**
 
 ```js
 let myValue = intval(someValue, 16, "42");
