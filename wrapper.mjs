@@ -1,3 +1,1 @@
-import intval from "./index.js";
-
-export default intval;
+export { default, default as intval } from "./index.js";
