@@ -119,7 +119,7 @@ intval(42000000) === 42000000;
 intval(420000000000000000000) === 420000000000000000000;
 intval("420000000000000000000") === 420000000000000000000;
 intval([]) === 0;
-(intval(["22foo", "bar"]) === intval("22foo")) === 22; // same as parseInt, returns intval of the first array element. But php intval(["22foo", "bar"]) === 1
+(intval(["22foo", "bar"]) === intval("22foo")) === 22; // same as parseInt, returns intval of the first array element. But in php intval(["22foo", "bar"]) === 1
 intval(123_456) === 123456;
 intval("123_456") === 123;
 ```
