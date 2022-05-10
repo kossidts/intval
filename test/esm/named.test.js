@@ -1,6 +1,6 @@
 import { intval } from "../../wrapper.mjs";
 
-describe("Imported Module named intval", () => {
+describe("Import named module", () => {
     it("is a function", () => {
         expect(typeof intval).toBe("function");
     });

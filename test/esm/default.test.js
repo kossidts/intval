@@ -1,6 +1,6 @@
 import randomName from "../../wrapper.mjs";
 
-describe("Imported Module", () => {
+describe("Import default module", () => {
     it("is a function", () => {
         expect(typeof randomName).toBe("function");
     });
