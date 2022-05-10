@@ -4,9 +4,9 @@
 
 **Intval will always return the sensible integer value of a given variable.** For instance:
 
-`intval("1e10") === 10_000_000_000` vs `parseInt("1e10") === 1`
+`intval("1e10") === 10_000_000_000` but `parseInt("1e10") === 1`
 
-`intval("3.125e7") === 31_250_000` vs `parseInt("3.125e7") === 3`
+`intval("3.125e7") === 31_250_000` but `parseInt("3.125e7") === 3`
 
 **`intval(true) === 1`** and **`intval(false) === 0`**
 
@@ -14,7 +14,7 @@ whereas `parseInt` would have returned `NaN` in both cases but as you know:
 
 `parseInt(true) !== NaN !== parseInt(false) ` though it `isNaN()` ;).
 
-Unlike _parseInt_, `intval` will never return `NaN` and **you can provide a default value right away to be returned in case the variable is undefined**. Hence `intval` helps you write even cleaner code.
+Unlike _parseInt_, `intval` will never return `NaN`. But **you can provide a default value to be returned, in case the variable is undefined**. Hence `intval` eliminates the needs to check against `NaN` and it helps you write even cleaner code.
 
 Syntax:
 
@@ -89,8 +89,9 @@ let intValue = typeof someValue != "undefined" ? intval(someValue) : 42;
 **Caution: The default value will not be type casted and the base/radix has no effect on it. So, the following will return a string value "42" in case 'someValue' is undefined**
 
 ```js
-let myValue = intval(someValue, 16, "42");
+let myValue = intval(undefinedVariable, 16, "42");
 
+// myValue === 66 --> false
 // myValue === 42 --> false
 // myValue === "42" --> true
 ```
