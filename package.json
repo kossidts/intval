@@ -1,6 +1,6 @@
 {
     "name": "intval",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Returns sensible integer value of a given variable. Unlike parseInt it will never return NaN and you can set a default value to be returned in case the variable is undefined! Hence you can write even cleaner code. So if it's supposed to be an integer, cast it with intval.",
     "main": "index.js",
     "scripts": {
