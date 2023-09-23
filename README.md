@@ -2,7 +2,7 @@
 
 [![License][license-image]][license-url] [![NPM Package Version][npm-image-version]][npm-url] ![GitHub top language][language-image] ![Size][size-image] ![Last Commit][commit-image] ![Workflow CI][workflow-image]
 
-**Intval will always return the sensible integer value of a given variable.** For instance:
+**Intval will always return the right integer value of a given variable.** For instance:
 
 `intval("1e10") === 10_000_000_000` but `parseInt("1e10") === 1`
 
@@ -14,7 +14,7 @@ whereas `parseInt` would have returned `NaN` in both cases but as you know:
 
 `parseInt(true) !== NaN !== parseInt(false) ` though it `isNaN()` ;).
 
-Unlike _parseInt_, `intval` will never return `NaN`. But **you can provide a default value to be returned, in case the variable is undefined**. Hence `intval` eliminates the needs to check against `NaN` and it helps you write even cleaner code.
+Unlike _parseInt_, `intval` will never return `NaN`. **You can provide a default value to be returned, in case the variable is undefined, otherwise it will return 0**. Hence `intval` eliminates the needs to check against `NaN` and it helps you write even cleaner code.
 
 Syntax:
 
@@ -86,14 +86,15 @@ is the same as
 let intValue = typeof someValue != "undefined" ? intval(someValue) : 42;
 ```
 
-**Caution: The default value will not be type casted and the base/radix has no effect on it. So, the following will return a string value "42" in case 'someValue' is undefined**
+**Even the default value will be type casted but the base/radix has no effect on it** i.e. the base is always 10 for the default value.
+So, the following will return 42:
 
 ```js
 let myValue = intval(undefinedVariable, 16, "42");
 
 // myValue === 66 --> false
-// myValue === 42 --> false
-// myValue === "42" --> true
+// myValue === "42" --> false
+// myValue === 42 --> true
 ```
 
 ### Some examples
@@ -144,7 +145,7 @@ As described above the base has no effect on the default value.
 let someValue; // undefined
 intval(someValue, 10, 42) === 42;
 intval(someValue, 8, 42) === 42;
-intval(someValue, 8, "42") === "42";
+intval(someValue, 8, "42") === 42;
 
 intval("1g51", 16, 42) === 1;
 intval(someValue, 16, 42) === 42;
