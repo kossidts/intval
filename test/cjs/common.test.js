@@ -1,4 +1,4 @@
-const intval = require("../../index.js");
+const intval = require("../../src/index.js");
 
 describe.each([
     { val: undefined, expected: 0 },

@@ -1,4 +1,4 @@
-import { intval } from "../../wrapper.mjs";
+import { intval } from "../../src/wrapper.mjs";
 
 describe("Import named module", () => {
     it("is a function", () => {

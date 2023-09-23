@@ -1,4 +1,4 @@
-import randomName from "../../wrapper.mjs";
+import randomName from "../../src/wrapper.mjs";
 
 describe("Import default module", () => {
     it("is a function", () => {

@@ -5,7 +5,10 @@
         "strict": true,
         "esModuleInterop": true,
         "declaration": true,
-        "declarationDir": "./types"
+        "emitDeclarationOnly": false,
+        "declarationDir": "./types",
+        "outDir": "./build",
+        "types": []
     },
-    "exclude": ["./test/**/*"]
+    "include": ["./src/**/*"]
 }
